@@ -8,7 +8,7 @@ class DatabaseService {
   factory DatabaseService() => _instance;
   DatabaseService._internal();
 
-  // ================= DATABASE =================
+  
   Future<Database> get database async {
     if (_database != null) return _database!;
     _database = await _initDatabase();
@@ -25,7 +25,7 @@ class DatabaseService {
     );
   }
 
-  // ================= TABLES =================
+ 
   Future<void> _createTables(Database db, int version) async {
     await db.execute('''
       CREATE TABLE admins (
@@ -125,12 +125,11 @@ class DatabaseService {
       )
     ''');
 
-    // مواد افتراضية
+  ة
     for (final s in ['عربي', 'حساب', 'انجليزي', 'علوم', 'دين', 'دراسات']) {
       await db.insert('subjects', {'name': s});
     }
 
-    // أدمن افتراضي
     await db.insert('admins', {
       'username': 'mohamed esam',
       'password': '1234',
@@ -146,7 +145,7 @@ class DatabaseService {
     }
   }
 
-  // ================= AUTH =================
+ 
   Future<Map<String, dynamic>?> getAdmin(String u, String p) async {
     final db = await database;
     final r = await db.query(
@@ -177,7 +176,7 @@ class DatabaseService {
     return r.isNotEmpty ? r.first : null;
   }
 
-  // ================= ADD =================
+ 
   Future<int> addTeacher(
       String name, String subject, String username, String password) async {
     final db = await database;
@@ -215,7 +214,6 @@ class DatabaseService {
     });
   }
 
-  // ✅ الحذف (المشكلة كانت هنا)
   Future<void> deleteClass(int id) async {
     final db = await database;
     await db.delete(
@@ -225,7 +223,6 @@ class DatabaseService {
     );
   }
 
-  // ================= GET ALL =================
   Future<List<Map<String, dynamic>>> getAllTeachers() async {
     final db = await database;
     return db.query('teachers');
@@ -246,7 +243,6 @@ class DatabaseService {
     return db.query('subjects');
   }
 
-  // ================= ASSIGN =================
   Future<void> assignTeacherToClass(
       int classId, int teacherId, String subject) async {
     final db = await database;
@@ -257,7 +253,6 @@ class DatabaseService {
     });
   }
 
-  // ================= TEACHER =================
   Future<List<Map<String, dynamic>>> getTeacherClasses(int teacherId) async {
     final db = await database;
     return db.rawQuery('''
@@ -280,7 +275,6 @@ class DatabaseService {
     return r.first['id'] as int;
   }
 
-  // ================= GRADES & ATTENDANCE =================
   Future<void> addGrade(
       int studentId, int teacherId, int subjectId, double grade) async {
     final db = await database;
@@ -319,7 +313,6 @@ class DatabaseService {
     return r.isNotEmpty;
   }
 
-  // ================= STUDENT =================
   Future<List<Map<String, dynamic>>> getStudentGrades(int studentId) async {
     final db = await database;
     return db.rawQuery('''
@@ -340,7 +333,6 @@ class DatabaseService {
     ''', [studentId]);
   }
 
-  // ================= SCHEDULE =================
   Future<List<Map<String, dynamic>>> getClassSchedule(int classId) async {
     final db = await database;
     return db.rawQuery('''
@@ -368,7 +360,6 @@ class DatabaseService {
     });
   }
 
-  // ================= NOTIFICATIONS =================
   Future<void> addNotification(
       String title, String content, int createdBy) async {
     final db = await database;
