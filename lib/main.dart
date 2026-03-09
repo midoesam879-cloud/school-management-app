@@ -6,10 +6,9 @@ import 'services/auth_provider.dart';
 import 'screens/login_screen.dart';
 
 void main() async {
-  // لازم قبل أي حاجة
   WidgetsFlutterBinding.ensureInitialized();
 
-  // ✅ تهيئة SQLite للـ Windows / Desktop
+ 
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
     sqfliteFfiInit();
     databaseFactory = databaseFactoryFfi;
