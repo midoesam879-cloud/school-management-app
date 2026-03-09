@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # نظام إدارة المدرسة - School Management System
 
 تطبيق Flutter شامل لإدارة المدارس مع دعم كامل للمدير والمعلمين والطلاب.
@@ -218,3 +219,7 @@ flutter run
 
 **تم إنشاؤه بواسطة**: فريق تطوير نظام إدارة المدرسة
 **آخر تحديث**: ديسمبر 2024
+=======
+# school-management-app
+Flutter-based School Management System with role-based access (Admin, Teacher, Student) including attendance tracking, grades management, schedules, and SQLite database integration.
+>>>>>>> 441fe990cbff93847e65c899e701431dd997bae8
