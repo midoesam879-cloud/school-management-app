@@ -1,0 +1,42 @@
+name: school_management_app
+description: A comprehensive Flutter application for school management system with Admin, Teacher, and Student roles.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Database
+  sqflite: ^2.3.3
+  sqflite_common_ffi: ^2.3.2
+  path: ^1.9.0
+
+  # State Management
+  provider: ^6.0.5
+
+  # UI and Navigation
+  intl: ^0.19.0
+
+  # Utilities
+  crypto: ^3.0.3
+
+  # HTTP (if needed for future backend integration)
+  http: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/fonts/
